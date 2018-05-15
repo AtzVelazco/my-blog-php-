@@ -1,0 +1,101 @@
+body {
+  background-color: #fff;
+  font-size: calc(0.33031vw + 11.28941px);
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto", sans-serif;
+  color: #686868;
+  font-weight: 300;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+h1, .h1 {
+  font-size: calc(0.91952vw + 32.81229px);
+}
+
+h2, .h2 {
+  font-size: calc(0.68296vw + 20.11166px);
+}
+
+h3, .h3 {
+  font-size: calc(0.47312vw + 13.40128px);
+}
+
+h4, .h4 {
+  font-size: calc(0.33031vw + 13.28941px);
+}
+
+h5, .h5 {
+  font-size: calc(0.2589vw + 10.23348px);
+}
+
+h6, .h6 {
+  font-size: calc(0.16515vw + 9.6447px);
+}
+
+.content-space > h1:first-child {
+  margin-top: 0;
+}
+
+.content-space > h2:first-child {
+  margin-top: 0;
+}
+
+.content-space > h3:first-child {
+  margin-top: 0;
+}
+
+.content-space > h4:first-child {
+  margin-top: 0;
+}
+
+.content-space > h5:first-child {
+  margin-top: 0;
+}
+
+.content-space > h6:first-child {
+  margin-top: 0;
+}
+
+p {
+  font-size: calc(0.33031vw + 11.28941px);
+  font-family: "Open Sans", sans-serif;
+  color: #686868;
+  margin-bottom: 15px;
+}
+
+.black-font {
+  color: #686868;
+}
+
+.black-font-bold {
+  color: #404040;
+}
+
+.white-font {
+  color: #ffff;
+}
+
+.primary-color {
+  background-color: #00bdc4;
+}
+
+.hover-color {
+  background-color: #00a3a9;
+}
+
+.hover-opacity-color {
+  background-color: rgba(245, 245, 245, 0.43);
+}
+
+.full-widht {
+  width: 100%;
+}
+
+.box {
+  width: 122px;
+  height: 122px;
+}
+/*# sourceMappingURL=style.css.map */

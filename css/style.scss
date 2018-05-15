@@ -1,0 +1,173 @@
+//--------------------------- @import---------------------------
+@import '_media.scss';
+// @import url('https://fonts.googleapis.com/css?family=Roboto:100,400,500,300|Open+Sans');
+
+// ---------------------------variables colors pages---------------------------
+    $primary-color: #00bdc4;
+    $hover-color: #00a3a9;
+    $hover-opacity-color: rgba(#f5f5f5, .43);
+
+    $black-font: #686868;
+    $black-font-bold: #404040;
+
+    $white-font: #ffff;
+
+// -----variables fonts pages------
+    $roboto:'Roboto', sans-serif ;
+    $opensans:'Open Sans', sans-serif;
+
+
+
+// Functions of font size
+@function get-size($size) {
+	// Add or replace breakpoints for theme here:
+	$map: map-get((
+		map60 : (320: 50, 768: 55, 1200: 60, 1600: 60),
+		map46 : (320: 35, 768: 40, 1200: 46, 1600: 46),
+		map30 : (320: 22, 768: 25, 1200: 30, 1600: 30),
+		map32 : (320: 22, 768: 25, 1200: 32, 1600: 32),
+		map28 : (320: 20, 768: 25, 1200: 28, 1600: 28),
+		map25 : (320: 18, 768: 21, 1200: 25, 1600: 25),
+		map20 : (320: 14, 768: 18, 1200: 20, 1600: 20),
+		map18 : (320: 14, 768: 16, 1200: 18, 1600: 18),
+		map16 : (320: 12, 768: 14, 1200: 16, 1600: 16),
+		map14 : (320: 11, 768: 12, 1200: 14, 1600: 14),
+		map12 : (320: 10, 768: 11, 1200: 12, 1600: 12),
+		map10 : (320: 8, 768: 9, 1200: 10, 1600: 10)
+	), $size);
+	// Get the number of provided breakpoints
+	$length: length(map-keys($map));
+	// Error if the number of breakpoints is < 2
+	@if ($length < 2) {
+	@error "leastSquaresFit() $map must be at least 2 values"
+	}
+	// Calculate the Means
+	$resTotal: 0;
+	$valueTotal: 0;
+	@each $res, $value in $map {
+	$resTotal: $resTotal + $res;
+	$valueTotal: $valueTotal + $value;
+	}
+	$resMean: $resTotal/$length;
+	$valueMean: $valueTotal/$length;
+	// Calculate some other stuff
+	$multipliedDiff: 0;
+	$squaredDiff: 0;
+	@each $res, $value in $map {
+	// Differences from means
+	$resDiff: $res - $resMean;
+	$valueDiff: $value - $valueMean;
+	// Sum of multiplied differences
+	$multipliedDiff: $multipliedDiff + ($resDiff * $valueDiff);
+	// Sum of squared resolution differences
+	$squaredDiff: $squaredDiff + ($resDiff * $resDiff);
+	}
+	// Calculate the Slope
+	$m: $multipliedDiff / $squaredDiff;
+	// Calculate the Y-Intercept
+	$b: $valueMean - ($m * $resMean);
+	// Return the CSS calc equation
+	@return calc(#{$m*100}vw + #{$b}px);
+}
+
+body {
+    background-color: #fff;
+    font-size: get-size(map16);
+}
+
+// --------------------------- Heading---------------------------
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: $roboto;
+	color: $black-font;
+	font-weight: 300;
+	margin-top: 30px;
+	margin-bottom: 15px;
+}
+h1, .h1 {font-size: get-size(map46); }
+h2, .h2 {font-size: get-size(map30); }
+h3, .h3 {font-size: get-size(map20); }
+h4, .h4 {font-size: get-size(map18); }
+h5, .h5 {font-size: get-size(map14); }
+h6, .h6 {font-size: get-size(map12); }
+ 
+
+.content-space>h1:first-child{ margin-top: 0;};
+.content-space>h2:first-child{ margin-top: 0;};
+.content-space>h3:first-child{ margin-top: 0;};
+.content-space>h4:first-child{ margin-top: 0;};
+.content-space>h5:first-child{ margin-top: 0;};
+.content-space>h6:first-child{ margin-top: 0;};
+
+p {
+	font-size: get-size(map16);
+	font-family: $opensans;
+	color: $black-font;
+	margin-bottom: 15px;
+}
+
+// ---------------------------clasese  for colors---------------------------
+
+.black-font { color: $black-font; }
+.black-font-bold { color: $black-font-bold; }
+.white-font { color: $white-font; }
+
+// ---------------------------clasese  for background---------------------------
+
+.primary-color {background-color: $primary-color; }
+.hover-color { background-color: $hover-color; }
+.hover-opacity-color { background-color: $hover-opacity-color; }
+
+// ------------------------------------------------------
+//helper classes 
+// ------------------------------------------------------
+
+.full-widht {
+	width: 100%; 
+}
+// ---------------------------  section padding --------------------------- 
+.section-padding--small {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	@include media(sm-min) {
+		padding-top: 25px;
+		padding-bottom: 25px;
+	}
+	@include media(md-min) {
+		padding-top: 30px;
+		padding-bottom: 30px; 
+	}
+}
+
+.section-padding--medium {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	@include media(sm-min) {
+		padding-top: 45px;
+		padding-bottom: 45px;
+	}
+	@include media(md-min) {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+}
+
+.section-padding--large{
+	padding-top: 60px;
+	padding-bottom: 60px;
+	@include media(sm-min) {
+		padding-top: 90px;
+		padding-bottom: 90px;
+	}
+	@include media(md-min) {
+		padding-top: 120px;
+		padding-bottom: 120px;
+	}
+}
+
+
+// --------------------------- Pages Layout Styles  Ignore---------------------------
+
+.box {
+	width: 122px;
+	height: 122px;
+}
