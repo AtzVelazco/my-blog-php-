@@ -164,6 +164,61 @@ p {
 	}
 }
 
+$size: 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100;
+// ---------------margin $size------------
+
+@each $size in $size {
+	.m-#{$size} {
+		margin: #{$size}px;
+	}
+}
+@each $size in $size {
+	.mt-#{$size} {
+		margin-top: #{$size}px;
+	}
+}
+@each $size in $size {
+	.mr-#{$size} {
+		margin-right: #{$size}px;
+	}
+}
+@each $size in $size {
+	.mb#{$size} {
+		margin-bottom: #{$size}px;
+	}
+}
+@each $size in $size {
+	.ml-#{$size} {
+		margin-left: #{$size}px;
+	}
+}
+// ---------------padding $size------------
+
+@each $size in $size {
+	.p-#{$size} {
+		padding: #{$size}px;
+	}
+}
+@each $size in $size {
+	.pt-#{$size} {
+		padding-top: #{$size}px;
+	}
+}
+@each $size in $size {
+	.pr-#{$size} {
+		padding-right: #{$size}px;
+	}
+}
+@each $size in $size {
+	.pb-#{$size} {
+		padding-bottom: #{$size}px;
+	}
+}
+@each $size in $size {
+	.pl-#{$size} {
+		padding-left: #{$size}px;
+	}
+}
 
 // --------------------------- Pages Layout Styles  Ignore---------------------------
 
@@ -171,3 +226,4 @@ p {
 	width: 122px;
 	height: 122px;
 }
+// --------------------------- Buttons---------------------------
